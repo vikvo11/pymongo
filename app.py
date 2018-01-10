@@ -27,6 +27,12 @@ def dashbord():
     #a= py()
     return render_template('dashbordpymongo.html', articles=msg)
 
+@app.route('/test')
+def test():
+    msg = py()
+    #a= py()
+    return render_template('test.html', articles=msg)
+
 
 def py():
     client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
