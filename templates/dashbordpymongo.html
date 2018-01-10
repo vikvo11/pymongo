@@ -28,9 +28,11 @@
     {% endfor %}
   </table>
 
+<script src="{{ url_for('static', filename='tablefilter/tablefilter.js')}}"></script>
+
   <script data-config>
       var filtersConfig = {
-          base_path: 'tablefilter/',
+          base_path: '/static/tablefilter/',
           col_1: 'select',
           col_2: 'select',
           col_3: 'select',
