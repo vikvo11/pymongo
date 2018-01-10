@@ -3,7 +3,7 @@
 {% block body %}
   <h1>Welcome <small> {{session.username}}</small></h1>
   <hr>
-  <table class="table table-striped">
+  <table class="table table-striped" id="demo">
     <tr>
       <th>ID</th>
       <th>Contact</th>
@@ -27,4 +27,10 @@
       </tr>
     {% endfor %}
   </table>
+  <script>
+var tf = new TableFilter(document.querySelector('demo'), {
+    base_path: '/static/tablefilter/'
+});
+tf.init();
+</script>
 {% endblock %}
