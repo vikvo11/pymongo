@@ -36,6 +36,13 @@
   <script data-config>
   var tfConfig = {
     base_path: 'static/tablefilter/',
+    state: {
+      types: ['hash'],
+      filters: true,
+      page_number: true,
+      page_length: true,
+      sort: true
+    },
     alternate_rows: true,
     rows_counter: {
         text: 'Users: '
@@ -54,7 +61,7 @@
         'string',
         'string',
         'string',
-        'string'  
+        'string'
     ],
     // Sort extension: in this example the column data types are provided by the
     // 'col_types' property. The sort extension also has a 'types' property
