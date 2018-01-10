@@ -75,7 +75,11 @@
     // defining the columns data type for column sorting. If the 'types'
     // property is not defined, the sorting extension will fallback to
     // the 'col_types' definitions.
-    extensions: [{ name: 'sort' }]
+    extensions: [{
+            name: 'filtersVisibility',
+            target_id: 'filtersToggle',
+            btn_html: '<button>Toggle filters<\/button>'
+        }]
 };
 var tf = new TableFilter('dtypes', tfConfig);
 tf.init();
