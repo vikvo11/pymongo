@@ -28,18 +28,17 @@
 
   <table id="dtypes">
     <thead>
+      {% for article in articles %}
         <tr>
-            <th>Email</th>
-            <th>Id</th>
-            <th>Phone</th>
-            <th>&euro;</th>
-            <th>US $</th>
-            <th>Url</th>
-            <th>EU Date</th>
-            <th>US Date</th>
-            <th>Another Date Format</th>
-            <th>IP</th>
+          <td>{{article.chat_id}}</td>
+          <td>{{article.contact}}</td>
+          <td>{{article.date}}</td>
+          <td>{{article.length}}</td>
+          <td>{{article.name}}</td>
+          <td>{{article.people}}</td>
+          <td>{{article.product}}</td>
         </tr>
+      {% endfor %}
     </thead>
     <tbody>
         <tr>
