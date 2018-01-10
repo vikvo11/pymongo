@@ -3,7 +3,7 @@
 {% block body %}
   <h1>Welcome <small> {{session.username}}</small></h1>
   <hr>
-  <table class="table table-striped" id="demo">
+  <table class="table table-striped" id="data-types">
     <tr>
       <th>ID</th>
       <th>Contact</th>
@@ -49,7 +49,7 @@
         'string',
         'string',
         'string',
-        'string'  
+        'string'
     ],
 
     // Sort extension: in this example the column data types are provided by the
@@ -59,7 +59,7 @@
     // the 'col_types' definitions.
     extensions: [{ name: 'sort' }]
 };
-var tf = new TableFilter('demo', tfConfig);
+var tf = new TableFilter('data-types', tfConfig);
 tf.init();
 
   </script>
