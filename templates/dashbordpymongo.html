@@ -26,48 +26,45 @@
     {% endfor %}
   </table>
 
-
+<script src="{{ url_for('static', filename='tablefilter/tablefilter.js')}}"></script>
 
   <script data-config>
-      var filtersConfig = {
-          base_path: '/static/tablefilter/',
-          col_1: 'select',
-          col_2: 'select',
-          col_3: 'select',
-          alternate_rows: true,
-          rows_counter: true,
-          btn_reset: true,
-          loader: true,
-          status_bar: true,
-          mark_active_columns: true,
-          highlight_keywords: true,
-          col_types: [
-              'string', 'string', 'number',
-              'number', 'number', 'number',
-              'number', 'number', 'number'
-          ],
-          custom_options: {
-              cols:[3],
-              texts: [[
-                  '0 - 25 000',
-                  '100 000 - 1 500 000'
-              ]],
-              values: [[
-                  '>0 && <=25000',
-                  '>100000 && <=1500000'
-              ]],
-              sorts: [false]
-          },
-          col_widths: [
-              '150px', '100px', '100px',
-              '70px', '70px', '70px',
-              '70px', '60px', '60px'
-          ],
-          extensions:[{ name: 'sort' }]
-      };
-
-      var tf = new TableFilter('demo', filtersConfig);
-      tf.init();
+  var filtersConfig = {
+    base_path: 'static/tablefilter/',
+    state: {
+      types: ['hash'],
+      filters: true,
+      page_number: true,
+      page_length: true,
+      sort: true
+    },
+    paging: {
+      results_per_page: ['Records: ', [10,25,50,100]]
+    },
+    alternate_rows: true,
+    btn_reset: true,
+    rows_counter: true,
+    loader: true,
+    status_bar: true,
+    col_0: 'multiple',
+    col_1: 'select',
+    col_2: 'checklist',
+    col_widths: [
+        '180px', '120px', '120px',
+        '100px', '100px', '100px',
+        '100px', '100px', '100px'
+    ],
+    col_types: [
+        'string', 'string', 'number',
+        'number', 'number', 'number',
+        'number', 'number', 'number'
+    ],
+    extensions:[{
+        name: 'sort'
+    }]
+};
+var tf = new TableFilter('demo', filtersConfig);
+tf.init();
 
   </script>
 {% endblock %}
