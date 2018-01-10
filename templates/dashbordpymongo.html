@@ -12,8 +12,6 @@
       <th>Name</th>
       <th>People</th>
       <th>Product</th>
-      <th></th>
-      <th></th>
     </tr>
     {% for article in articles %}
       <tr>
@@ -28,7 +26,7 @@
     {% endfor %}
   </table>
 
-<script src="{{ url_for('static', filename='tablefilter/tablefilter.js')}}"></script>
+
 
   <script data-config>
       var filtersConfig = {
