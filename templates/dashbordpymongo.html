@@ -28,6 +28,20 @@
 
   <table id="dtypes">
     <thead>
+        <tr>
+          <th>ID</th>
+          <th>Contact</th>
+          <th>Date</th>
+          <th>Length</th>
+          <th>Name</th>
+          <th>People</th>
+          <th>Product</th>
+            <th>US Date</th>
+            <th>Another Date Format</th>
+            <th>IP</th>
+        </tr>
+    </thead>
+    <tbody>
       {% for article in articles %}
         <tr>
           <td>{{article.chat_id}}</td>
@@ -39,8 +53,6 @@
           <td>{{article.product}}</td>
         </tr>
       {% endfor %}
-    </thead>
-    <tbody>
         <tr>
             <td>devo@flexomat.com</td>
             <td>66672</td>
