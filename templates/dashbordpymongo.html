@@ -43,14 +43,16 @@
       page_length: true,
       sort: true
     },
+    paging: {
+      results_per_page: ['Records: ', [10,25,50,100]]
+    },
     alternate_rows: true,
-    rows_counter: {
-        text: 'Users: '
-    },
-    btn_reset: {
-        text: 'Clear'
-    },
+    btn_reset: true,
+    rows_counter: true,
     loader: true,
+    status_bar: true,
+
+
     no_results_message: true,
 
     // columns data types
