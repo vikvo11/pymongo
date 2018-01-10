@@ -26,6 +26,73 @@
     {% endfor %}
   </table>
 
+  <table id="dtypes">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Id</th>
+            <th>Phone</th>
+            <th>&euro;</th>
+            <th>US $</th>
+            <th>Url</th>
+            <th>EU Date</th>
+            <th>US Date</th>
+            <th>Another Date Format</th>
+            <th>IP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>devo@flexomat.com</td>
+            <td>66672</td>
+            <td>941-964-8535</td>
+            <td>
+                <div align="right">2.482,79</div>
+            </td>
+            <td>
+                <div align="right">2,482.79</div>
+            </td>
+            <td>http://gmail.com</td>
+            <td>14/12/1988</td>
+            <td>12/14/1988</td>
+            <td>14-Dec-1988</td>
+            <td>186.114.137.213</td>
+        </tr>
+        <tr>
+            <td>henry@mountdev.net</td>
+            <td>35889</td>
+            <td>941-964-9543</td>
+            <td>
+                <div align="right">2.776,09</div>
+            </td>
+            <td>
+                <div align="right">2,776.09</div>
+            </td>
+            <td>http://www.gmail.com</td>
+            <td>19/1/1984</td>
+            <td>1/19/1984</td>
+            <td>19-Jan-1984</td>
+            <td>170.138.54.12</td>
+        </tr>
+        <tr>
+            <td>christian@reno.gov</td>
+            <td>60021</td>
+            <td>941-964-5617</td>
+            <td>
+                <div align="right">2.743,41</div>
+            </td>
+            <td>
+                <div align="right">2,743.41</div>
+            </td>
+            <td>http://www.dotnet.ca</td>
+            <td>25/3/2000</td>
+            <td>3/25/2000</td>
+            <td>25-Mar-2000</td>
+            <td>219.115.156.141</td>
+        </tr>
+      </tbody>
+  </table>
+
 <script src="{{ url_for('static', filename='tablefilter/tablefilter.js')}}"></script>
 
   <script data-config>
@@ -46,12 +113,14 @@
         'string',
         'string',
         'string',
+        { type: 'formatted-number', decimal: ',', thousands: '.' },
+        'formatted-number', // defaults to '.' for decimal and ',' for thousands
         'string',
-        'string',
-        'string',
-        'string'
+        { type: 'date', locale: 'fr' },
+        { type: 'date', locale: 'en-US' },
+        { type: 'date', locale: 'en-US', format: ['{dd}-{months}-{yyyy|yy}'] },
+        'ipaddress'
     ],
-
     // Sort extension: in this example the column data types are provided by the
     // 'col_types' property. The sort extension also has a 'types' property
     // defining the columns data type for column sorting. If the 'types'
@@ -59,7 +128,7 @@
     // the 'col_types' definitions.
     extensions: [{ name: 'sort' }]
 };
-var tf = new TableFilter('data-types', tfConfig);
+var tf = new TableFilter('dtypes', tfConfig);
 tf.init();
 
   </script>
