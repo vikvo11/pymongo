@@ -4,6 +4,7 @@
   <h1>Welcome <small> {{session.username}}</small></h1>
   <hr>
   <table class="table table-striped" id="data-types">
+  <thead>
     <tr>
       <th>ID</th>
       <th>Contact</th>
@@ -13,6 +14,8 @@
       <th>People</th>
       <th>Product</th>
     </tr>
+    </thead>
+    <tbody>
     {% for article in articles %}
       <tr>
         <td>{{article.chat_id}}</td>
@@ -24,6 +27,7 @@
         <td>{{article.product}}</td>
       </tr>
     {% endfor %}
+    </tbody>
   </table>
 
   <table id="dtypes">
@@ -56,7 +60,7 @@
           <td>186.114.137.213</td>
         </tr>
       {% endfor %}
-        
+
       </tbody>
   </table>
 
