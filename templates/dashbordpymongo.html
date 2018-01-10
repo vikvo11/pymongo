@@ -55,9 +55,16 @@
         '100px', '100px', '100px'
     ],
     col_types: [
-        'string', 'string', 'number',
-        'number', 'number', 'number',
-        'number', 'number', 'number'
+        'string',
+        'string',
+        'string',
+        { type: 'formatted-number', decimal: ',', thousands: '.' },
+        'formatted-number', // defaults to '.' for decimal and ',' for thousands
+        'string',
+        { type: 'date', locale: 'fr' },
+        { type: 'date', locale: 'en-US' },
+        { type: 'date', locale: 'en-US', format: ['{dd}-{months}-{yyyy|yy}'] },
+        'ipaddress'
     ],
     extensions:[{
         name: 'sort'
