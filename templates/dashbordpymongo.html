@@ -30,39 +30,6 @@
     </tbody>
   </table>
 
-  <table id="datypes">
-    <thead>
-        <tr>
-          <th>ID</th>
-          <th>Contact</th>
-          <th>Date</th>
-          <th>Length</th>
-          <th>Name</th>
-          <th>People</th>
-          <th>Product</th>
-            <th>US Date</th>
-            <th>Another Date Format</th>
-            <th>IP</th>
-        </tr>
-    </thead>
-    <tbody>
-      {% for article in articles %}
-        <tr>
-          <td>{{article.chat_id}}</td>
-          <td>{{article.contact}}</td>
-          <td>{{article.date}}</td>
-          <td>{{article.length}}</td>
-          <td>{{article.name}}</td>
-          <td>{{article.people}}</td>
-          <td>{{article.product}}</td>
-          <td>12/14/1988</td>
-          <td>14-Dec-1988</td>
-          <td>186.114.137.213</td>
-        </tr>
-      {% endfor %}
-
-      </tbody>
-  </table>
 
 <script src="{{ url_for('static', filename='tablefilter/tablefilter.js')}}"></script>
 
@@ -83,14 +50,11 @@
     col_types: [
         'string',
         'string',
-        'string',
-        { type: 'formatted-number', decimal: ',', thousands: '.' },
-        'formatted-number', // defaults to '.' for decimal and ',' for thousands
-        'string',
-        { type: 'date', locale: 'fr' },
         { type: 'date', locale: 'en-US' },
-        { type: 'date', locale: 'en-US', format: ['{dd}-{months}-{yyyy|yy}'] },
-        'ipaddress'
+        'string',
+        'string',
+        'string',
+        'string'  
     ],
     // Sort extension: in this example the column data types are provided by the
     // 'col_types' property. The sort extension also has a 'types' property
