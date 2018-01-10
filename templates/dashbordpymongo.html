@@ -29,31 +29,19 @@
 <script src="{{ url_for('static', filename='tablefilter/tablefilter.js')}}"></script>
 
   <script data-config>
-  var filtersConfig = {
+  var tfConfig = {
     base_path: 'static/tablefilter/',
-    state: {
-      types: ['hash'],
-      filters: true,
-      page_number: true,
-      page_length: true,
-      sort: true
-    },
-    paging: {
-      results_per_page: ['Records: ', [10,25,50,100]]
-    },
     alternate_rows: true,
-    btn_reset: true,
-    rows_counter: true,
+    rows_counter: {
+        text: 'Users: '
+    },
+    btn_reset: {
+        text: 'Clear'
+    },
     loader: true,
-    status_bar: true,
-    col_1: 'select',
-    col_2: 'checklist',
-    col_7: 'select',
-    col_widths: [
-        '180px', '120px', '120px',
-        '100px', '100px', '100px',
-        '100px', '100px', '100px'
-    ],
+    no_results_message: true,
+
+    // columns data types
     col_types: [
         'string',
         'string',
@@ -66,11 +54,15 @@
         { type: 'date', locale: 'en-US', format: ['{dd}-{months}-{yyyy|yy}'] },
         'ipaddress'
     ],
-    extensions:[{
-        name: 'sort'
-    }]
+
+    // Sort extension: in this example the column data types are provided by the
+    // 'col_types' property. The sort extension also has a 'types' property
+    // defining the columns data type for column sorting. If the 'types'
+    // property is not defined, the sorting extension will fallback to
+    // the 'col_types' definitions.
+    extensions: [{ name: 'sort' }]
 };
-var tf = new TableFilter('demo', filtersConfig);
+var tf = new TableFilter('demo', tfConfig);
 tf.init();
 
   </script>
