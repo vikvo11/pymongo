@@ -2,7 +2,7 @@
 
 {% block body %}
 
-  <h1>Welcome <small> {{session.username}}</small></h1>
+  <h1 style=center>Welcome <small> {{session.username}}</small></h1>
   <hr>
   {% include 'includes/_navbarpymongo.html' %}
   <table class="table table-striped" id="dtypes">
@@ -76,7 +76,7 @@
     col_6: 'select',
             col_widths: [
                 '75px', '150px', '150px',
-                '80px', '250px', '80px','100px'
+                '70px', '250px', '70px','100px'
             ],
 
     no_results_message: true,
