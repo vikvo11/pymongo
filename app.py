@@ -29,7 +29,7 @@ def is_logged_in(f):
 @app.route('/')
 def home():
     a=1
-    return redirect(url_for('test'))
+    return redirect(url_for('login'))
 
 @app.route('/test')
 def dashbord():
