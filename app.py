@@ -28,10 +28,15 @@ def is_logged_in(f):
 
 @app.route('/')
 def dashbord():
+    #msg = py()
+    #a= py()
+    return redirect(url_for('index'))
+    
+@app.route('/index')
+def dashbord():
     msg = py()
     #a= py()
     return render_template('dashbordpymongo.html', articles=msg)
-
 @app.route('/test')
 def test():
     msg = py()
