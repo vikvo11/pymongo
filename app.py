@@ -36,11 +36,12 @@ def dashbord():
     msg = py()
     #a= py()
     return render_template('dashbordpymongo.html', articles=msg)
+'''
 @app.route('/test1')
 def test():
     msg = py()
     return render_template('home.html', articles=msg)
-
+'''
 #Logout
 @app.route('/logout')
 def logout():
