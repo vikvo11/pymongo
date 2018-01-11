@@ -7,6 +7,7 @@ from bson import json_util
 from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging #For work with HTTP and templates
 import requests # For HTTP requests
 from functools import wraps # For lock access
+from HTTP_basic_Auth import auths # For lock access
 
 client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
 db = client["heroku_q51pzrtm"]
@@ -35,7 +36,22 @@ def dashbord():
 def test():
     msg = py()
     return render_template('test.html', articles=msg)
+#User Login
+@app.route('/login',methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        #Get Form fields
+        username = request.form['username']
+        password_candidate = request.form['password']
+        #users=auths()
+        if auths(username,password_candidate):
+            session['logged_in']= True
+            return redirect(url_for('test'))
+        else:
+                error='Invalid login'
+                return render_template('login.html',error=error)
 
+    return render_template('login.html')
 
 def py():
     client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
