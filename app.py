@@ -28,9 +28,8 @@ def is_logged_in(f):
 
 @app.route('/')
 def home():
-    #msg = py()
-    #a= py()
-    return redirect(url_for('index'))
+    a=1
+    return redirect(url_for('test'))
 
 @app.route('/index')
 def dashbord():
@@ -41,6 +40,14 @@ def dashbord():
 def test():
     msg = py()
     return render_template('home.html', articles=msg)
+
+#Logout
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('You are now logged out','success')
+    return redirect(url_for('login'))
+
 #User Login
 @app.route('/login',methods=['GET','POST'])
 def login():
