@@ -1,9 +1,10 @@
 {% extends 'layout1.html' %}
 
 {% block body %}
-{% include 'includes/_navbarpymongo.html' %}
+
   <h1>Welcome <small> {{session.username}}</small></h1>
   <hr>
+  {% include 'includes/_navbarpymongo.html' %}
   <table class="table table-striped" id="dtypes">
   <thead>
     <tr>
