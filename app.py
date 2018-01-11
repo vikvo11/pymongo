@@ -29,9 +29,9 @@ def is_logged_in(f):
 @app.route('/')
 def home():
     a=1
-    return redirect(url_for('test'))
+    return redirect(url_for('index1'))
 
-@app.route('/index')
+@app.route('/index1')
 def dashbord():
     msg = py()
     #a= py()
