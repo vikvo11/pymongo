@@ -35,7 +35,7 @@ def dashbord():
 @app.route('/test')
 def test():
     msg = py()
-    return render_template('test.html', articles=msg)
+    return render_template('home.html', articles=msg)
 #User Login
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -46,7 +46,7 @@ def login():
         #users=auths()
         if auths(username,password_candidate):
             session['logged_in']= True
-            return redirect(url_for('/'))
+            return redirect(url_for('test'))
         else:
                 error='Invalid login'
                 return render_template('login.html',error=error)
