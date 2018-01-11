@@ -39,6 +39,79 @@
   <div id="filtersToggle"></div>
 
   <script data-config>
+
+  // Form submission logic for filtering the table
+      function filter(evt){
+          var frm = document.forms[0];
+          var slc = frm.slcColumns;
+          var inp = frm.inpSearch;
+
+          // Set the column's filter value
+          tf.setFilterValue(slc.value, inp.value);
+
+          // Filter the table
+          tf.filter();
+
+          // Prevent form submission
+          evt.preventDefault();
+      }
+
+      // Toggle pagination
+      function togglePagination(evt){
+          var chx = evt.target;
+          // Get paging feature instance
+          var feature = tf.feature('paging');
+
+          if(chx.checked){
+              tf.paging = true;
+              feature.reset();
+          } else {
+              tf.paging = false;
+              feature.destroy();
+              // Display all rows
+              tf.filter();
+          }
+      }
+
+      // Toggle alternating rows
+      function toggleAlternatingRows(evt){
+          var chx = evt.target;
+          // Get alternating rows feature instance
+          var feature = tf.feature('alternateRows');
+
+          if(chx.checked){
+              tf.alternateRows = true;
+              feature.reset();
+          } else {
+              tf.alternateRows = false;
+              feature.destroy();
+          }
+      }
+
+      // Toggle rows counter
+      function toggleRowsCounter(evt){
+          var chx = evt.target;
+          // Get rows counter feature instance
+          var feature = tf.feature('rowsCounter');
+
+          if(chx.checked){
+              tf.rowsCounter = true;
+              feature.reset();
+          } else {
+              tf.rowsCounter = false;
+              feature.destroy();
+          }
+      }
+
+      // Toggle grid-layout mode
+      function toggleGridLayout(evt){
+          var chx = evt.target;
+
+          tf.destroy();
+          tf = createTableFilter(chx.checked);
+          tf.init();
+      }
+
   var tfConfig = {
     base_path: 'static/tablefilter/',
     state: {
