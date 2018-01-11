@@ -27,11 +27,11 @@ def is_logged_in(f):
     return wrap
 
 @app.route('/')
-def dashbord():
+def home():
     #msg = py()
     #a= py()
     return redirect(url_for('index'))
-    
+
 @app.route('/index')
 def dashbord():
     msg = py()
