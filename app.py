@@ -46,7 +46,7 @@ def login():
         #users=auths()
         if auths(username,password_candidate):
             session['logged_in']= True
-            return redirect(url_for('test'))
+            return redirect(url_for('/'))
         else:
                 error='Invalid login'
                 return render_template('login.html',error=error)
