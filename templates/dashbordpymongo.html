@@ -32,6 +32,9 @@
 
 
 <script src="{{ url_for('static', filename='tablefilter/tablefilter.js')}}"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tablefilter/style/tablefilter.css')}}">
+
+  <div id="filtersToggle"></div>
 
   <script data-config>
   var tfConfig = {
@@ -75,9 +78,8 @@
     // defining the columns data type for column sorting. If the 'types'
     // property is not defined, the sorting extension will fallback to
     // the 'col_types' definitions.
-    extensions: [{ name: 'sort' }]
     extensions: [{
-            name: 'filtersVisibility',
+            name: 'sort',
             target_id: 'filtersToggle',
             btn_html: '<button>Toggle filters<\/button>'
         }]
