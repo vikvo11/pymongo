@@ -29,10 +29,10 @@ def is_logged_in(f):
 @app.route('/')
 def home():
     a=1
-    return redirect(url_for('login'))
+    return redirect(url_for('dashbord'))
 
 @app.route('/test')
-def dashbord():
+def dashbord1():
     msg = py()
     #a= py()
     return render_template('dashbordpymongo.html', articles=msg)
@@ -63,6 +63,12 @@ def login():
         else:
                 error='Invalid login'
                 return render_template('login.html',error=error)
+
+    return render_template('login.html')
+
+#Dashbord
+@app.route('/dashbord',methods=['GET','POST'])
+def dashbord():
 
     return render_template('login.html')
 
