@@ -23,20 +23,20 @@ def is_logged_in(f):
             return f(*args,**kwargs)
         else:
             #flash('Unauthorized, Please login', 'danger')
-            return redirect(url_for('test'))
+            return redirect(url_for('login'))
     return wrap
 
 @app.route('/')
 def home():
     a=1
-    return redirect(url_for('index1'))
+    return redirect(url_for('test'))
 
-@app.route('/index1')
+@app.route('/test')
 def dashbord():
     msg = py()
     #a= py()
     return render_template('dashbordpymongo.html', articles=msg)
-@app.route('/test')
+@app.route('/test1')
 def test():
     msg = py()
     return render_template('home.html', articles=msg)
