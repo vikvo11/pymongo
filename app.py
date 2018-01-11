@@ -55,7 +55,7 @@ def login():
         #users=auths()
         if auths(username,password_candidate):
             session['logged_in']= True
-            return redirect(url_for('index'))
+            return redirect(url_for('dashbord'))
         else:
                 error='Invalid login'
                 return render_template('login.html',error=error)
