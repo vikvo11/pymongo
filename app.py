@@ -69,8 +69,8 @@ def login():
 #Dashbord
 @app.route('/dashbord',methods=['GET','POST'])
 def dashbord():
-
-    return render_template('login.html')
+    msg = py()
+    return render_template('dashbordpymongo.html', articles=msg)
 
 def py():
     client = MongoClient("ds141786.mlab.com:41786", username = 'podarkin', password = 'podarkin', authSource = 'heroku_q51pzrtm')
